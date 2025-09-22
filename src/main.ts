@@ -1,7 +1,9 @@
-import { Color, DisplayMode, Engine, FadeInOut } from "excalibur";
+import { Color, DisplayMode, Engine, FadeInOut, PointerScope} from "excalibur";
 import { loader } from "./resources";
 import { MyLevel } from "./level";
 import { Title } from "./title";
+
+const startButton = document.getElementById('start-button');
 
 // Goal is to keep main.ts small and just enough to configure the engine
 
@@ -10,9 +12,8 @@ const game = new Engine({
   height: 1080,
   displayMode: DisplayMode.FitScreenAndFill, // Display mode tells excalibur how to fill the window
   pixelArt: true, // pixelArt will turn on the correct settings to render pixel art without jaggies or shimmering artifacts
-  scenes: {
-    start: Title
-  },
+  canvasElementId: 'game-canvas',
+  pointerScope: PointerScope.Canvas
   // physics: {
   //   solver: SolverStrategy.Realistic,
   //   substep: 5 // Sub step the physics simulation for more robust simulations
@@ -20,13 +21,11 @@ const game = new Engine({
   // fixedUpdateTimestep: 16 // Turn on fixed update timestep when consistent physic simulation is important
 });
 
-game.start('start', { // name of the start scene 'start'
-  loader, // Optional loader (but needed for loading images/sounds)
-  inTransition: new FadeInOut({ // Optional in transition
-    duration: 1000,
-    direction: 'in',
-    color: Color.Green
-  })
-}).then(() => {
-  // Do something after the game starts
-});
+game.add('Title', new Title())
+game.add('LevelOne', new MyLevel())
+game.goToScene('Title')
+
+startButton.addEventListener('click', () => {
+  game.start()
+  game.goToScene('LevelOne');
+})

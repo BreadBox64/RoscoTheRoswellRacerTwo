@@ -1,8 +1,11 @@
 import { DefaultLoader, Engine, ExcaliburGraphicsContext, Scene, SceneActivationContext } from "excalibur";
 
+const uiOverlay = document.getElementById('ui-overlay');
+const startButton = document.getElementById('start-button');
+
 export class Title extends Scene {
     override onInitialize(engine: Engine): void {
-        // Scene.onInitialize is where we recommend you perform the composition for your game
+       uiOverlay.classList.add('active')
     }
 
     override onPreLoad(loader: DefaultLoader): void {
@@ -15,8 +18,7 @@ export class Title extends Scene {
     }
 
     override onDeactivate(context: SceneActivationContext): void {
-        // Called when Excalibur transitions away from this scene
-        // Only 1 scene is active at a time
+        uiOverlay.classList.remove('active')
     }
 
     override onPreUpdate(engine: Engine, elapsedMs: number): void {
