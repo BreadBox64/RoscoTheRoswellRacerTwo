@@ -1,5 +1,5 @@
-import { Color, DisplayMode, Engine, FadeInOut, PointerScope } from "excalibur"
-import { loader } from "./resources"
+import { Color, DisplayMode, Engine, FadeInOut, PointerScope, Resource } from "excalibur"
+import { loader, Resources } from "./resources"
 import { MyLevel } from "./level"
 
 // Goal is to keep main.ts small and just enough to configure the engine
@@ -29,5 +29,7 @@ game.start('start', { // name of the start scene 'start'
 		color: Color.ExcaliburBlue
 	})
 }).then(() => {
-	// Do something after the game starts
+	if(game.currentScene instanceof MyLevel) {
+		game.currentScene.onPostLoad()
+	}
 });

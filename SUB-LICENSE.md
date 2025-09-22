@@ -1,8 +1,8 @@
-Dirt texture from [Regrown Grass](https://modrinth.com/resourcepack/ekhos-regrown-grass) under the MIT License
+Tile textures from [Skys 8x8](https://modrinth.com/resourcepack/skys_8x8) under the MIT License
 
 > MIT License
 > 
-> Copyright (c) 2024 ProbablyEkho
+> Copyright (c) 2023 Skxlor
 > 
 > Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without > restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the > Software is furnished to do so, subject to the following conditions:
 > 

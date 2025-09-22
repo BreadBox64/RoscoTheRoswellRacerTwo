@@ -2,9 +2,13 @@ import { ImageSource, ImageWrapping, Loader } from "excalibur"
 import swordPath from './images/sword.png'
 import forwardMarkerPath from './images/forwardMarker.png'
 import dirtPath from './images/dirt.png'
+import { TiledResource } from "@excaliburjs/plugin-tiled";
 
 // It is convenient to put your resources in one place
 export const Resources = {
+	TiledMap: new TiledResource('../resources/mapData/first-level.tmx', {
+		strict: false
+	}),
 	Sword: new ImageSource(swordPath),
 	ForwardMarker: new ImageSource(forwardMarkerPath),
 	Dirt: new ImageSource(dirtPath, {
