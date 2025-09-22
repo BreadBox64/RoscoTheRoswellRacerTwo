@@ -33,7 +33,7 @@ export class Car extends Actor {
 		if(engine.input.keyboard.isHeld(Keys.S)) {
 			decceleration += 250
 		} else if(engine.input.keyboard.isHeld(Keys.W)) {
-			acceleration += 100
+			acceleration += 150 - (this.vel.magnitude / 9)
 		}
 		
 		decceleration *= elapsedMs/10

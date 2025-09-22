@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "@excaliburjs/plugin-tiled": "0.30.2",
+    "copy-webpack-plugin": "^13.0.1",
     "excalibur": "0.30.0-alpha.1295"
   }
 }

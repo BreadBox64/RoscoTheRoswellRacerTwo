@@ -7,13 +7,14 @@ export class MyLevel extends Scene {
 	override onInitialize(engine: Engine): void {
 		// Scene.onInitialize is where we recommend you perform the composition for your game
 		Resources.TiledMap.addToScene(this)
+		this.tileMaps[0].scale = vec(2, 2)
 
 		const player = new Player();
 		this.add(player); // Actors need to be added to a scene to be drawn
 		
 		const car = new Car();
 		this.add(car);
-		this.camera.strategy.elasticToActor(car, 0.9, 0.2)
+		this.camera.strategy.elasticToActor(car, 0.5, 0.9)
 		this.backgroundColor = Color.Viridian
 	}
 
