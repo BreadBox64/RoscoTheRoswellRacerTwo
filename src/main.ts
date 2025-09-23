@@ -4,9 +4,10 @@ import { MyLevel } from "./level";
 import { Title } from "./title";
 
 const startButton = document.getElementById('start-button');
+const uiOverlay = document.getElementById('ui-overlay');
 
 // Goal is to keep main.ts small and just enough to configure the engine
-
+console.log("Launch engine")
 const game = new Engine({
   width: 1920, // Logical width and height in game pixels
   height: 1080,
@@ -20,12 +21,22 @@ const game = new Engine({
   // },
   // fixedUpdateTimestep: 16 // Turn on fixed update timestep when consistent physic simulation is important
 });
+console.log("Engine launched")
 
+uiOverlay.hidden = true
 game.add('Title', new Title())
 game.add('LevelOne', new MyLevel())
-game.goToScene('Title')
+console.log("Added scenes")
 
 startButton.addEventListener('click', () => {
-  game.start()
   game.goToScene('LevelOne');
+})
+console.log("I am going to try to start the game")
+game.start('Start', {
+  loader
+}).then(() => {
+  console.log('I Started')
+  game.goToScene('Title')
+}).catch(err => {
+  console.log("Game failed to start:", err)
 })

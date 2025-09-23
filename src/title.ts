@@ -5,7 +5,7 @@ const startButton = document.getElementById('start-button');
 
 export class Title extends Scene {
     override onInitialize(engine: Engine): void {
-       uiOverlay.classList.add('active')
+       
     }
 
     override onPreLoad(loader: DefaultLoader): void {
@@ -13,12 +13,12 @@ export class Title extends Scene {
     }
 
     override onActivate(context: SceneActivationContext<unknown>): void {
-        // Called when Excalibur transitions to this scene
+        uiOverlay.hidden = false// Called when Excalibur transitions to this scene
         // Only 1 scene is active at a time
     }
 
     override onDeactivate(context: SceneActivationContext): void {
-        uiOverlay.classList.remove('active')
+        uiOverlay.hidden = true
     }
 
     override onPreUpdate(engine: Engine, elapsedMs: number): void {
