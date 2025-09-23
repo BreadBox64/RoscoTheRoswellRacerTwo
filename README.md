@@ -26,3 +26,20 @@ Navigate to the repo base directory and run `npm install`
 You should be able to run `npm start` to start a dev-server and then connect on localhost:8080
 
 If using VSCode or derivatives, the launch.json has configs for both Firefox & Chrome debugging sessions, so F5 should open both the dev-server and a web browser instance
+
+## Contributing Guidelines
+
+1. Follow your assigned issues
+
+2. Follow style guidelines:
+
+	- Only tabs for indentation
+
+	- Exclude semicolons when unecessary
+
+	- Opening bracket on same line as statement:
+		```Typescript
+		if(condition) {
+			let a = 5
+		}
+		```

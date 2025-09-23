@@ -1,6 +1,6 @@
-import { Color, DisplayMode, Engine, FadeInOut, PointerScope, ImageSource} from "excalibur";
-import { loader } from "./resources";
-import { MyLevel } from "./level";
+import { Color, DisplayMode, Engine, FadeInOut, Resource, PointerScope, ImageSource} from "excalibur"
+import { loader, Resources } from "./resources"
+import { MyLevel } from "./level"
 import { Title } from "./title";
 
 const startButton = document.getElementById('start-button');

@@ -1,4 +1,5 @@
 {
+  "exclude": ["./res/**/*.tsx", "./dist/**/*.*"],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,

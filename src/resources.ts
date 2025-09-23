@@ -1,11 +1,15 @@
-import { ImageSource, Loader } from "excalibur";
-import swordPath from './images/sword.png'; // Webpack asset/resource loader will find the image path
+import { ImageSource, ImageWrapping, Loader } from "excalibur"
+import swordPath from '../res/img/sword.png'
 import bgPath from './images/bg.png';
+import forwardMarkerPath from '../res/img/forwardMarker.png'
+import { TiledResource } from "@excaliburjs/plugin-tiled";
 
 // It is convenient to put your resources in one place
 export const Resources = {
-  Sword: new ImageSource(swordPath),
-  BG: new ImageSource(bgPath)
+	TiledMap: new TiledResource('../res/map/main.tmx'),
+	Sword: new ImageSource(swordPath),
+	ForwardMarker: new ImageSource(forwardMarkerPath),
+  	BG: new ImageSource(bgPath)
 } as const; // the 'as const' is a neat typescript trick to get strong typing on your resources. 
 // So when you type Resources.Sword -> ImageSource
 
@@ -13,5 +17,5 @@ export const Resources = {
 // You can build your own loader by extending DefaultLoader
 export const loader = new Loader();
 for (const res of Object.values(Resources)) {
-  loader.addResource(res);
+	loader.addResource(res);
 }
