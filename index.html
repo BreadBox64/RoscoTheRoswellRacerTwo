@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excalibur Game with HTML UI</title>
+    <title>Rosco The Roswell Racer 2</title>
     <style>
         body, html {
             margin: 0;
@@ -38,12 +38,17 @@
             position: absolute;
             top: 50%;
             left: 50%;
+            font-size: 2rem;
             transform: translate(-50%, -50%);
             pointer-events: all; /* Specific UI elements should handle clicks */
         }
         .main-menu-content button {
+            display: block;
+            width: 50%;
+            margin-bottom: 10px;
             padding: 10px 20px;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            transform: translate(50%, 0%);
             cursor: pointer;
         }
     </style>
@@ -51,10 +56,11 @@
 <body>
     <main>
         <canvas id="game-canvas"></canvas>
-        <div id="ui-overlay">
+        <div id="ui-overlay", style="background-image: url('src/images/bg.png'); background-repeat: no-repeat;">
             <div class="main-menu-content">
-                <h1>Game Title</h1>
+                <h1>Rosco the Roswell Racer 2</h1>
                 <button id="start-button">Start Game</button>
+                <button id="options-button">Options</button>
             </div>
         </div>
     </main>

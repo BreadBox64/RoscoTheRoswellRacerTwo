@@ -5,7 +5,7 @@ import bgPath from './images/bg.png';
 // It is convenient to put your resources in one place
 export const Resources = {
   Sword: new ImageSource(swordPath),
-  Background: new ImageSource(bgPath)
+  BG: new ImageSource(bgPath)
 } as const; // the 'as const' is a neat typescript trick to get strong typing on your resources. 
 // So when you type Resources.Sword -> ImageSource
 

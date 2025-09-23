@@ -1,15 +1,35 @@
-import { DefaultLoader, Engine, ExcaliburGraphicsContext, Scene, SceneActivationContext } from "excalibur";
+import { DefaultLoader, Engine, ExcaliburGraphicsContext, Scene, SceneActivationContext, Actor, vec, ImageSource } from "excalibur";
+import { Resources } from "./resources";
 
 const uiOverlay = document.getElementById('ui-overlay');
-const startButton = document.getElementById('start-button');
-
 export class Title extends Scene {
-    override onInitialize(engine: Engine): void {
-       
+    private backgroundImage: ImageSource
+
+    constructor() {
+       super();
+       this.backgroundImage = Resources.BG 
     }
 
     override onPreLoad(loader: DefaultLoader): void {
-        // Add any scene specific resources to load
+    }
+
+    override onInitialize(engine: Engine): void {
+       const backgroundActor = new Actor({
+        x: 0,
+        y: 0,
+        width: engine.screen.resolution.width,
+        height: engine.screen.resolution.height,
+        anchor: vec(0, 0),
+        z: -99
+       });
+
+       const backgroundSprite = this.backgroundImage.toSprite();
+        backgroundSprite.destSize.width = engine.screen.resolution.width;
+        backgroundSprite.destSize.height = engine.screen.resolution.height;
+
+        backgroundActor.graphics.use(backgroundSprite);
+
+        this.add(backgroundActor)
     }
 
     override onActivate(context: SceneActivationContext<unknown>): void {

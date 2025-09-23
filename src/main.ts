@@ -1,4 +1,4 @@
-import { Color, DisplayMode, Engine, FadeInOut, PointerScope} from "excalibur";
+import { Color, DisplayMode, Engine, FadeInOut, PointerScope, ImageSource} from "excalibur";
 import { loader } from "./resources";
 import { MyLevel } from "./level";
 import { Title } from "./title";
@@ -32,7 +32,7 @@ startButton.addEventListener('click', () => {
   game.goToScene('LevelOne');
 })
 console.log("I am going to try to start the game")
-game.start('Start', {
+game.start('', {
   loader
 }).then(() => {
   console.log('I Started')
