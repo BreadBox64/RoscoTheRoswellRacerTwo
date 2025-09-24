@@ -1,5 +1,5 @@
-import { Color, DisplayMode, Engine, FadeInOut, Resource, PointerScope, ImageSource, Resolution} from "excalibur"
-import { loader, Resources } from "./resources"
+import { DisplayMode, Engine, PointerScope } from "excalibur"
+import { loader } from "./resources"
 import { MyLevel } from "./level"
 import { Title } from "./title";
 
@@ -16,16 +16,8 @@ const game = new Engine({
   pixelArt: true, // pixelArt will turn on the correct settings to render pixel art without jaggies or shimmering artifacts
   canvasElementId: 'game-canvas',
   pointerScope: PointerScope.Canvas
-  // physics: {
-  //   solver: SolverStrategy.Realistic,
-  //   substep: 5 // Sub step the physics simulation for more robust simulations
-  // },
-  // fixedUpdateTimestep: 16 // Turn on fixed update timestep when consistent physic simulation is important
 });
 console.log("Engine launched")
-
-// uiOverlay.style.width = `${game.screen.width}`
-// uiOverlay.style.height = `${game.screen.height}`
 
 game.add('Title', new Title())
 game.add('LevelOne', new MyLevel())
@@ -34,6 +26,7 @@ console.log("Added scenes")
 startButton.addEventListener('click', () => {
   game.goToScene('LevelOne');
 })
+
 console.log("Waiting for user to start game")
 game.start('', {
   loader
