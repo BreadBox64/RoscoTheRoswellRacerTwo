@@ -3,33 +3,33 @@ import { Resources } from "./resources";
 
 const uiOverlay = document.getElementById('ui-overlay');
 export class Title extends Scene {
-    private backgroundImage: ImageSource
+    // private backgroundImage: ImageSource
 
-    constructor() {
-       super();
-       this.backgroundImage = Resources.BG 
-    }
+    // constructor() {
+    //    super();
+    //    this.backgroundImage = Resources.BG 
+    // }
 
     override onPreLoad(loader: DefaultLoader): void {
     }
 
     override onInitialize(engine: Engine): void {
-       const backgroundActor = new Actor({
-        x: 0,
-        y: 0,
-        width: engine.screen.resolution.width,
-        height: engine.screen.resolution.height,
-        anchor: vec(0, 0),
-        z: -99
-       });
+    //    const backgroundActor = new Actor({
+    //     x: 0,
+    //     y: 0,
+    //     width: engine.screen.resolution.width,
+    //     height: engine.screen.resolution.height,
+    //     anchor: vec(0, 0),
+    //     z: -99
+    //    });
 
-       const backgroundSprite = this.backgroundImage.toSprite();
-        backgroundSprite.destSize.width = engine.screen.resolution.width;
-        backgroundSprite.destSize.height = engine.screen.resolution.height;
+    //    const backgroundSprite = this.backgroundImage.toSprite();
+    //     backgroundSprite.destSize.width = engine.screen.resolution.width;
+    //     backgroundSprite.destSize.height = engine.screen.resolution.height;
 
-        backgroundActor.graphics.use(backgroundSprite);
+    //     backgroundActor.graphics.use(backgroundSprite);
 
-        this.add(backgroundActor)
+    //     this.add(backgroundActor)
     }
 
     override onActivate(context: SceneActivationContext<unknown>): void {

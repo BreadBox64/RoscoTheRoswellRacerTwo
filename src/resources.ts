@@ -1,6 +1,6 @@
 import { ImageSource, ImageWrapping, Loader } from "excalibur"
 import swordPath from '../res/img/sword.png'
-import bgPath from './images/bg.png';
+import bgPath from '../res/img/bg.png';
 import forwardMarkerPath from '../res/img/forwardMarker.png'
 import { TiledResource } from "@excaliburjs/plugin-tiled";
 
