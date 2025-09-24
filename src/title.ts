@@ -1,7 +1,7 @@
 import { DefaultLoader, Engine, ExcaliburGraphicsContext, Scene, SceneActivationContext, Actor, vec, ImageSource } from "excalibur";
 import { Resources } from "./resources";
 
-const uiOverlay = document.getElementById('ui-overlay');
+const uiOverlay = document.getElementById('main-menu-overlay');
 export class Title extends Scene {
     // private backgroundImage: ImageSource
 

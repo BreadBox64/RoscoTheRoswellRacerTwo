@@ -4,7 +4,7 @@ import { MyLevel } from "./level"
 import { Title } from "./title";
 
 const startButton = document.getElementById('start-button');
-const uiOverlay = document.getElementById('ui-overlay');
+const uiOverlay = document.getElementById('main-menu-overlay');
 
 // Goal is to keep main.ts small and just enough to configure the engine
 uiOverlay.hidden = true

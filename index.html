@@ -1,86 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rosco The Roswell Racer 2</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-        }
-        main {
-            position: relative;
-            width: 100vw; /* Match game dimensions */
-            height: 100vh;
-            margin: 0px;
-        }
-        #game-canvas {
-            display: block;
-            background-color: #333;
-        }
-        #ui-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none; /* Allows mouse events to pass to the canvas */
-            color: white;
-            font-family: sans-serif;
-            font-size: 5vmin;
-            text-align: center;
-        }
-        #ui-overlay.active {
-            pointer-events: all; /* When active, UI can be interacted with */
-        }
-        .main-menu-content {
-            container-type: size;
-            width: 75vw;
-            aspect-ratio: 5 / 2;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: 0;
-            transform: translate(-50%, -50%);
-            align-items: center;
-            pointer-events: all; /* Specific UI elements should handle clicks */
-        }
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rosco the Roswell Racer 2</title>
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                background-color: black;
+            }
+            main {
+                position: relative;
+                width: 100vw;
+                height: 100vh;
+                margin: 0;
+            }
+            #game-canvas {
+                display: block;
+                background-color: #333;
+            }
+            #main-menu-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                font-family: sans-serif;
+                text-align: center;
+            }
+            #main-menu-overlay.active {
+                pointer-events: all;
+            }
+            .main-menu-container {
+                container-name: base;
+                /* Positions container to be centered and 16:9 always */
+                container-type: size;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: min(99.9vw, calc(100vh * 16 / 9));
+                height: min(99.9vh, calc(100vw * 9 / 16));
+                aspect-ratio: 16 / 9;
 
-        .main-menu-button {
-            container-type: size;
-            width: 75vw;
-            height: 8vw;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-        }
+                /* Centering the children */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
 
-        .main-menu-button button {
-            width: 40vw;
-            font-size: 50cqh;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <main>
-        <canvas id="game-canvas"></canvas>
-        <div id="ui-overlay", style="background-image: url('./res/img/bg.png'); background-repeat: no-repeat; background-position: center center; background-size: contain;", hidden = true>
-            <div class="main-menu-content">
-                <h1 style="color: black; font-size: 20cqh; margin: 0;">Rosco the Roswell Racer 2</h1>
-                <div class="main-menu-button">
-                    <button id="start-button">Start Game</button>
-                </div>
-                <div class="main-menu-button">
-                    <button id="options-button">Options</button>
+                /* Formatting */
+                margin: 0;
+                padding: 0;
+
+                border: blue;
+                border-width: 5px;
+            }
+
+            /* Contains the actual menu */
+            .main-menu {
+                container-type: size;
+                container-name: menu;
+                display: flex;
+                flex-direction: column;
+                width: 75cqw;
+                aspect-ratio: 5 / 2; /* This line helps for some reason */
+                margin: 0;
+                padding: 0;
+                padding-bottom: 2cqh;
+                align-items: center;
+                justify-content: center;
+                pointer-events: all;
+            }
+
+            /* Special container for styling buttons */
+            .main-menu-buttons {
+                container-type: size;
+                width: 100cqw;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Special referencing based on container "base" */
+            @container base (width){
+                .main-menu-buttons {
+                    width: 75cqw;
+                    height: 8cqw;
+                    padding-bottom: 1cqh;
+                }
+            }
+
+            /* The buttons...  finally */
+            .main-menu-buttons button {
+                font-size: 50cqh;
+                width: 40cqw;
+                height: 100cqh;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <canvas id="game-canvas"></canvas>
+            <div id="main-menu-overlay", style="background-image: url('./res/img/bg.png'); background-repeat: no-repeat; background-position: center center; background-size: contain;" hidden = true>
+                <div class="main-menu-container">
+                    <div class="main-menu">
+                        <h1 style="color: black; font-size: 20cqh; margin: 0;">Rosco the Roswell Racer 2</h1>
+                        <div class="main-menu-buttons">
+                            <button id="start-button">Start Game</button>
+                        </div>
+                        <div class="main-menu-buttons">
+                            <button id="options-button">Options</button>
+                        </div>
+                    </div> 
                 </div>
             </div>
-        </div>
-    </main>
-    <!-- Include Excalibur.js and your game script -->
-    <script src="src/main.ts" type="module"></script>
-</body>
+        </main>
+    </body>
 </html>
