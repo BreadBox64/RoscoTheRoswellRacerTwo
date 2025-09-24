@@ -3,13 +3,12 @@ import { loader } from "./resources"
 import { MyLevel } from "./level"
 import { Title } from "./title";
 
-const startButton = document.getElementById('start-button');
 const uiOverlay = document.getElementById('main-menu-overlay');
 
 // Goal is to keep main.ts small and just enough to configure the engine
 uiOverlay.hidden = true
 console.log("Launch engine")
-const game = new Engine({
+export const game = new Engine({
   width: 800, // Logical width and height in game pixels
   height: 600,
   displayMode: DisplayMode.FitScreenAndFill, // Display mode tells excalibur how to fill the window
@@ -22,10 +21,6 @@ console.log("Engine launched")
 game.add('Title', new Title())
 game.add('LevelOne', new MyLevel())
 console.log("Added scenes")
-
-startButton.addEventListener('click', () => {
-  game.goToScene('LevelOne');
-})
 
 console.log("Waiting for user to start game")
 game.start('', {
