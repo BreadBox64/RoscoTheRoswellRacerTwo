@@ -35,7 +35,7 @@ export class Car extends Actor {
 		}
 		
 		const {tiledTile, exTile} = Resources.TiledMap.getTileByPoint('ground', this.pos) || {tiledTile: null, exTile: null}
-		const maxDriveSpeed = (Number)(tiledTile?.properties.get('max drive speed'))
+		const maxDriveSpeed = (Number)(tiledTile?.properties.get('max drive speed') || 200) 
 		
 		let decceleration = 15 + 135 * (this.vel.magnitude / maxDriveSpeed) + 100*Math.abs(this.angularVelocity);
 		let acceleration = 0
@@ -56,8 +56,6 @@ export class Car extends Actor {
 			this.acc = vec(-decceleration, 0).rotate(this.vel.toAngle())
 		}
 		this.acc.add(vec(acceleration, 0).rotate(this.rotation), this.acc)
-		//console.log(this.vel.magnitude)
-		this.vel.clampMagnitude(maxDriveSpeed)
 	}
 
 	override onInitialize() {
