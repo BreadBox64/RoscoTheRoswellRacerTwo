@@ -34,6 +34,27 @@ export class Title extends Scene {
 
     override onActivate(context: SceneActivationContext<unknown>): void {
         uiOverlay.hidden = false// Called when Excalibur transitions to this scene
+
+        const buttonContainer = document.querySelector('.button-container');
+
+        if (buttonContainer) {
+            // Use a type assertion to tell TypeScript that `buttons` is a NodeListOf<HTMLElement>
+            const buttons = buttonContainer.querySelectorAll('button') as NodeListOf<HTMLElement>;
+
+            let maxWidth = 0;
+
+            // Find the maximum width
+            buttons.forEach(button => {
+                if (button.offsetWidth > maxWidth) {
+                maxWidth = button.offsetWidth;
+                }
+            });
+
+            // Apply the maximum width to all buttons
+            buttons.forEach(button => {
+                button.style.minWidth = `${maxWidth}px`;
+            });
+        }
         // Only 1 scene is active at a time
     }
 

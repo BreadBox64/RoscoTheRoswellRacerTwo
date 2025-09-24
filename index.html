@@ -29,26 +29,38 @@
             pointer-events: none; /* Allows mouse events to pass to the canvas */
             color: white;
             font-family: sans-serif;
+            font-size: 5vmin;
             text-align: center;
         }
         #ui-overlay.active {
             pointer-events: all; /* When active, UI can be interacted with */
         }
         .main-menu-content {
+            container-type: size;
+            width: 75vw;
+            aspect-ratio: 5 / 2;
             position: absolute;
             top: 50%;
             left: 50%;
-            font-size: 5vh;
+            margin: 0;
             transform: translate(-50%, -50%);
+            align-items: center;
             pointer-events: all; /* Specific UI elements should handle clicks */
         }
-        .main-menu-content button {
-            display: block;
-            width: 50%;
-            margin-bottom: 1vh;
-            padding: 1vh 1vw;
-            font-size: 5vh;
-            transform: translate(50%, 0%);
+
+        .main-menu-button {
+            container-type: size;
+            width: 75vw;
+            height: 8vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .main-menu-button button {
+            width: 40vw;
+            font-size: 50cqh;
             cursor: pointer;
         }
     </style>
@@ -58,9 +70,13 @@
         <canvas id="game-canvas"></canvas>
         <div id="ui-overlay", style="background-image: url('./res/img/bg.png'); background-repeat: no-repeat; background-position: center center; background-size: contain;", hidden = true>
             <div class="main-menu-content">
-                <h1>Rosco the Roswell Racer 2</h1>
-                <button id="start-button">Start Game</button>
-                <button id="options-button">Options</button>
+                <h1 style="color: black; font-size: 20cqh; margin: 0;">Rosco the Roswell Racer 2</h1>
+                <div class="main-menu-button">
+                    <button id="start-button">Start Game</button>
+                </div>
+                <div class="main-menu-button">
+                    <button id="options-button">Options</button>
+                </div>
             </div>
         </div>
     </main>
