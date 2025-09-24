@@ -38,16 +38,16 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            font-size: 2rem;
+            font-size: 5vh;
             transform: translate(-50%, -50%);
             pointer-events: all; /* Specific UI elements should handle clicks */
         }
         .main-menu-content button {
             display: block;
             width: 50%;
-            margin-bottom: 10px;
-            padding: 10px 20px;
-            font-size: 2rem;
+            margin-bottom: 1vh;
+            padding: 1vh 1vw;
+            font-size: 5vh;
             transform: translate(50%, 0%);
             cursor: pointer;
         }
@@ -56,7 +56,7 @@
 <body>
     <main>
         <canvas id="game-canvas"></canvas>
-        <div id="ui-overlay", style="background-image: url('./res/img/bg.png'); background-repeat: no-repeat; background-size: contain;", hidden = true>
+        <div id="ui-overlay", style="background-image: url('./res/img/bg.png'); background-repeat: no-repeat; background-position: center center; background-size: contain;", hidden = true>
             <div class="main-menu-content">
                 <h1>Rosco the Roswell Racer 2</h1>
                 <button id="start-button">Start Game</button>
