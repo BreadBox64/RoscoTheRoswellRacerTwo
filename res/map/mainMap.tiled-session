@@ -3,21 +3,49 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "main.tmx",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
+        "fixed.tmx": {
+            "scale": 5.826666666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 120.05148741418762,
+                "y": 79.97711670480547
+            }
+        },
+        "main.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 4,
+                "y": 260
+            }
+        },
+        "tileset.tsx": {
+            "scaleInDock": 5.5,
+            "scaleInEditor": 11
+        }
     },
     "last.imagePath": "/home/breadbox64/GitRepos/RoscoTheRoswellRacerTwo/res/img",
-    "map.fixedSize": false,
+    "map.fixedSize": true,
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": "3",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
     "openFiles": [
+        "tileset.tsx",
+        "main.tmx",
+        "fixed.tmx"
     ],
     "project": "mainMap.tiled-project",
+    "property.type": "int",
     "recentFiles": [
+        "tileset.tsx",
+        "fixed.tmx",
+        "main.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

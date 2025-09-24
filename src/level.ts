@@ -3,7 +3,7 @@ import { Player } from "./player"
 import { Car } from "./car"
 import { Resources } from "./resources"
 
-export class MyLevel extends Scene {
+export class MainGameScene extends Scene {
 	override onInitialize(engine: Engine): void {
 		// Scene.onInitialize is where we recommend you perform the composition for your game
 		Resources.TiledMap.addToScene(this)
