@@ -1,5 +1,4 @@
-import { DefaultLoader, Engine, ExcaliburGraphicsContext, Scene, SceneActivationContext, Actor, vec, ImageSource } from "excalibur";
-import { Resources } from "./resources";
+import { DefaultLoader, Engine, ExcaliburGraphicsContext, Scene, SceneActivationContext } from "excalibur";
 
 const uiOverlay = document.getElementById('main-menu-overlay');
 export class TitleScene extends Scene {

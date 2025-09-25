@@ -1,5 +1,4 @@
-import { Actor, Color, DefaultLoader, Engine, Entity, ExcaliburGraphicsContext, GraphicsComponent, PointerComponent, Scene, SceneActivationContext, Sprite, TransformComponent, vec } from "excalibur"
-import { Player } from "./player"
+import { Actor, Color, DefaultLoader, Engine, ExcaliburGraphicsContext, PointerComponent, Scene, SceneActivationContext, TransformComponent, vec } from "excalibur"
 import { Car } from "./car"
 import { Resources } from "./resources"
 
@@ -19,12 +18,7 @@ export class MainGameScene extends Scene {
 		//console.log(Resources.TiledMap.getEntitiesByClassName())
 		const playerCar = (Resources.TiledMap.getEntitiesByName('player-car')[0]) as Car
 		playerCar.pos.add(offset, playerCar.pos)
-		
-		const player = new Player();
-		this.add(player); // Actors need to be added to a scene to be drawn
-		
-		//const car = new Car();
-		//this.add(car);
+
 		this.camera.strategy.elasticToActor(playerCar, 0.5, 0.9)
 		this.camera.zoom = 2
 		this.backgroundColor = Color.Viridian

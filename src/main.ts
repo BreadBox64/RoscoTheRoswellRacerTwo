@@ -18,6 +18,7 @@ const game = new Engine({
 		start: TitleScene,
 		main: MainGameScene
 	},
+	backgroundColor: Color.Black,
 	antialiasing: false,
 	canvasElementId: 'game-canvas',
 	pointerScope: PointerScope.Canvas,
@@ -34,18 +35,18 @@ const game = new Engine({
 });
 
 startButton.addEventListener('click', () => {
-	game.goToScene('main', {
-		destinationIn: new FadeInOut({
-			duration: 1000,
-			color: Color.Black
-		})
-	});
+	uiOverlay.style.opacity = '0';
+	setTimeout(() => {
+		game.goToScene('main', {
+			destinationIn: new FadeInOut({
+				duration: 1000,
+				direction: 'in',
+				color: Color.Black
+			})
+		});
+	}, 1000)
 })
 
 game.start('start', {
 	loader
-}).then(() => {
-	if(game.currentScene instanceof MainGameScene) {
-		game.currentScene.onPostLoad()
-	}
-});
+})
