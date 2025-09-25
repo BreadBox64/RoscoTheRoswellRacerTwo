@@ -1,8 +1,6 @@
-import { Actor, Collider, CollisionContact, CollisionType, Color, Engine, Keys, lerp, Rectangle, Side, toRadians, vec } from "excalibur"
+import { Actor, Collider, CollisionContact, CollisionType, Engine, Keys, Side, toRadians, vec } from "excalibur"
 import { Resources } from "./resources"
-import { Tile } from "@excaliburjs/plugin-tiled/build/umd/src/resource/tileset";
-import { TileInfo } from "@excaliburjs/plugin-tiled/build/umd/src/resource/tile-layer";
-import { FactoryProps, getCanonicalGid } from "@excaliburjs/plugin-tiled";
+import { FactoryProps } from "@excaliburjs/plugin-tiled";
 
 export class Car extends Actor {
 	maxSpeed: number
