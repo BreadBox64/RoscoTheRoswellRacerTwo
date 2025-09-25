@@ -1,7 +1,4 @@
 import { ImageSource, Loader } from "excalibur"
-import swordPath from '../res/img/sword.png'
-import bgPath from '../res/img/bg.png';
-import forwardMarkerPath from '../res/img/forwardMarker.png'
 import { FactoryProps, TiledResource, TilesetResource } from "@excaliburjs/plugin-tiled";
 import { PhysicsBlock } from "./PhysicsBlock";
 import { Car } from "./Car";
@@ -20,10 +17,9 @@ export const Resources = {
 			}
 		}
 	}),
-	Sword: new ImageSource(swordPath),
 	Dozer: new ImageSource('../res/img/dozer.png'),
-	ForwardMarker: new ImageSource(forwardMarkerPath),
-  	BG: new ImageSource(bgPath)
+	ForwardMarker: new ImageSource('../res/img/forwardMarker.png'),
+	TitleBackground: new ImageSource('../res/img/bg.png')
 } as const; // the 'as const' is a neat typescript trick to get strong typing on your resources. 
 // So when you type Resources.Sword -> ImageSource
 
