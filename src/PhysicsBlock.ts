@@ -1,9 +1,10 @@
-import { Actor, Collider, CollisionContact, CollisionType, Engine, Side, vec } from "excalibur"
+import { Actor, Collider, CollisionContact, CollisionType, Engine, ImageWrapping, Side, Sprite, vec } from "excalibur"
 import { Resources } from "./Resources"
 import { FactoryProps } from "@excaliburjs/plugin-tiled";
 
 export class PhysicsBlock extends Actor {
 	gid: number;
+	fixed: boolean
 
 	constructor(fixed: boolean, props: FactoryProps) {
 		super({
@@ -12,16 +13,21 @@ export class PhysicsBlock extends Actor {
 			width: props?.object['width'] ?? 8,
 			height: props?.object['height'] ?? 8,
 			//collider: Shape.Box(1, 1),
-			anchor: vec(0, 1), // Actors default center colliders and graphics with anchor (0.5, 0.5)
+			anchor: fixed ? vec(0, 0) : vec(0, 1), // Actors default center colliders and graphics with anchor (0.5, 0.5)
 			collisionType: (fixed) ? CollisionType.Fixed : CollisionType.Active,
 		});
 		
-		this.gid = props.object['gid'] - 1
-		this.body.mass = props.properties.get('mass') ?? 1
+		this.fixed = fixed
+		if(!fixed) {
+			this.gid = props?.object['gid'] - 1
+			this.body.mass = props.properties.get('mass') ?? 10
+		}
 	}
 
 	override onInitialize() {
-		this.graphics.add(Resources.TiledTileset.data.getSpriteForGid(this.gid));
+		if(!this.fixed) {
+			this.graphics.add(Resources.TiledTileset.data.getSpriteForGid(this.gid));
+		}
 	}
 
 	override onPreUpdate(engine: Engine, elapsedMs: number): void {

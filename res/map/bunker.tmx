@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="80" tilewidth="8" tileheight="8" infinite="1" nextlayerid="5" nextobjectid="22">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="64" height="80" tilewidth="8" tileheight="8" infinite="1" nextlayerid="6" nextobjectid="44">
  <tileset firstgid="1" source="tileset.tsx"/>
  <layer id="1" name="Ground" width="64" height="80">
   <properties>
@@ -58,10 +58,10 @@
    eJylUkEOwCAM6uv1CfuuF5c0BArLDsRES0HaXVWrYTcsOFMwXr9TOn80nY7qO+k4DwmXecA6lslzgXXpX16+0p96MD8uZ+YvzT55d3uRzkLVYV6Og1lOfJYry9lxvu6mmm3nH07dhy0=
   </chunk>
    <chunk x="16" y="64" width="16" height="16">
-   eJyFk90NgDAIhLuJQ7QTOQwOwbJqgsmXy1EfSDVyvR8wxhjx1NUUv82qfGrVqX089XkW7sPmT38Y/gX+84dbfVE78Z1fvtN7Flbxyttl9+HT8HczcN6z4XOZkpv5d77Ve8Czm7+bIbXPwr64w8y/03AJnvmtTfa6d+qf+nfeVQN3WPl3/w+1MEe3p25/QviJd70uF9X+3nEDwgJ3Bw==
+   eJyVU0EKwCAM8yd7RPuOPWKPcY/oZ6dQIYR04iE4sTFtzHprrQ+8BfDMEjHguXIdrvxtyVvc2NR3oe+g/2y0eS7sHfnVvLjH2SO5zGfdyrvFD6FfvYGaPQo95Slqo//z7N7A8p4HdP2Qb8mdvIve/4SP/vmP95w7nh/7V/lX2VlwQFWv/ovVC/qocqry00kf+apW+cK9zzs+06dxtg==
   </chunk>
    <chunk x="32" y="64" width="16" height="16">
-   eJyNk9ENACEIQ9lJJ3IYHIJl7z4k6TUV7qOJUQoP1Glm81W8Gkf7yEG4t0FB/ioW9zLvIv8WNVU+9CfDsC+zX2pingni3qv6Ka7PfBzPebJ/F/yKnXMF3R3HVPNgf8eqzgLYh2lOVffGf4u/ceC9V+9ErdHf9a/+gR//avxV//z2OzEDzu/PDPj8AWjne9I=
+   eJyVU0EOgCAM25/GO3yEj4FH7LNiwpLa1KGHJoJrVzpoZtYmYsIXxkIH4N4ABPGrWtxL3ZP4Q/RUeshPD25Pz/2lJ+o0AJ+96p/g/uyP61knz9+Ff+WdtYJmxzVVHsy/18cGrB3g3X/ylf+/fJx7dU/UN/JdaFf557qtGVZ8lTv6j4K/ewOY35cM+P8Fu0R2gg==
   </chunk>
    <chunk x="48" y="64" width="16" height="16">
    eJydU7kRwDAIY3oygtd1QxpOX1JwPgwI8XVV9cgjpJff9lc6i0E2xsPZGVcUh3K6P+bDuO2eIlykM5ykT653CjupW9Wh8qQzf98z4vYP8WwS/3ePVLy7heSmvswO5U/qUFgXpY6G4Q==
@@ -87,8 +87,17 @@
     <property name="orientation" type="int" value="90"/>
    </properties>
   </object>
-  <object id="20" type="static-block" gid="78" x="288" y="600" width="24" height="24"/>
-  <object id="21" type="static-block" gid="78" x="176" y="600" width="24" height="24"/>
+ </objectgroup>
+ <objectgroup id="5" name="Colliders">
+  <object id="34" type="static-block" x="264" y="136" width="88" height="72"/>
+  <object id="35" type="static-block" x="288" y="576" width="72" height="24"/>
+  <object id="36" type="static-block" x="112" y="576" width="88" height="24"/>
+  <object id="37" type="static-block" x="112" y="72" width="24" height="504"/>
+  <object id="38" type="static-block" x="112" y="56" width="344" height="16"/>
+  <object id="39" type="static-block" x="456" y="56" width="16" height="192"/>
+  <object id="40" type="static-block" x="368" y="248" width="104" height="16"/>
+  <object id="41" type="static-block" x="360" y="264" width="24" height="320"/>
+  <object id="43" template="collider.tx" name="" type="static-block" x="176" y="128"/>
  </objectgroup>
  <layer id="3" name="Roof" width="64" height="80">
   <properties>
