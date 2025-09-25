@@ -9,6 +9,7 @@ const uiOverlay = document.getElementById('main-menu-overlay');
 uiOverlay.hidden = true
 console.log("Launch engine")
 export const game = new Engine({
+  fixedUpdateTimestep: 10,
   width: 800, // Logical width and height in game pixels
   height: 600,
   displayMode: DisplayMode.FitScreenAndFill, // Display mode tells excalibur how to fill the window

@@ -1,13 +1,18 @@
 import { DefaultLoader, Engine, ExcaliburGraphicsContext, Scene, SceneActivationContext, Actor, vec, ImageSource, } from "excalibur";
 import { Resources } from "./resources";
 import { game } from "./main";
+import { electron } from "webpack";
 
 const startButton = document.getElementById("start-button");
 const optionsButton = document.getElementById("options-button")
 const fullScreenButton = document.getElementById("fullscreen");
 const uiOverlay = document.getElementById("main-menu-overlay");
-const optionsOverlay = document.getElementById("options-menu-overlay")
+const optionsOverlay = document.getElementById("options-menu-overlay");
+const volumeSlider = document.getElementById("volume") as HTMLInputElement | null;
+const volumeLabel = document.getElementById("volumeLabel");
+const returnButton = document.getElementById("return")
 export let isFullscreen = false;
+export let volume = 0
 
 export function enterFullscreen(element: HTMLElement): void {
   if (element.requestFullscreen) {
@@ -50,6 +55,13 @@ export class Title extends Scene {
     optionsButton.addEventListener("click", () => {
         uiOverlay.hidden = true;
         optionsOverlay.hidden = false;
+    })
+    volumeSlider.addEventListener("input", () => {
+        volumeLabel.textContent = 'Volume: ' + volumeSlider.value
+        volume = parseInt(volumeSlider.value)
+    })
+    returnButton.addEventListener("click", () => {
+        game.goToScene('Title')
     })
   }
 
