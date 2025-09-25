@@ -2,7 +2,7 @@ import { DefaultLoader, Engine, ExcaliburGraphicsContext, Scene, SceneActivation
 import { Resources } from "./resources";
 
 const uiOverlay = document.getElementById('main-menu-overlay');
-export class Title extends Scene {
+export class TitleScene extends Scene {
 
     override onPreLoad(loader: DefaultLoader): void {
     }
