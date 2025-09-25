@@ -1,7 +1,7 @@
-import { DisplayMode, Engine, PointerScope } from "excalibur"
+import { Color, DisplayMode, Engine, FadeInOut, PointerScope, SolverStrategy } from "excalibur"
 import { loader } from "./resources"
-import { MyLevel } from "./level"
-import { Title } from "./title";
+import { MainGameScene } from "./MainGameScene"
+import { TitleScene } from "./TitleScene";
 
 const startButton = document.getElementById('start-button');
 const uiOverlay = document.getElementById('main-menu-overlay');
@@ -10,29 +10,42 @@ const uiOverlay = document.getElementById('main-menu-overlay');
 uiOverlay.hidden = true
 console.log("Launch engine")
 const game = new Engine({
-  width: 800, // Logical width and height in game pixels
-  height: 600,
-  displayMode: DisplayMode.FitScreenAndFill, // Display mode tells excalibur how to fill the window
-  pixelArt: true, // pixelArt will turn on the correct settings to render pixel art without jaggies or shimmering artifacts
-  canvasElementId: 'game-canvas',
-  pointerScope: PointerScope.Canvas
+	width: 800, // Logical width and height in game pixels
+	height: 600,
+	displayMode: DisplayMode.FitScreenAndFill, // Display mode tells excalibur how to fill the window
+	pixelArt: true, // pixelArt will turn on the correct settings to render pixel art without jaggies or shimmering artifacts
+	scenes: {
+		start: TitleScene,
+		main: MainGameScene
+	},
+	antialiasing: false,
+	canvasElementId: 'game-canvas',
+	pointerScope: PointerScope.Canvas,
+	physics: {
+		solver: SolverStrategy.Realistic,
+		realistic: {
+			positionIterations: 4
+		},
+		colliders: {
+			compositeStrategy: 'separate'
+		}
+		//substep: 5 // Sub step the physics simulation for more robust simulations
+	},
 });
-console.log("Engine launched")
-
-game.add('Title', new Title())
-game.add('LevelOne', new MyLevel())
-console.log("Added scenes")
 
 startButton.addEventListener('click', () => {
-  game.goToScene('LevelOne');
+	game.goToScene('main', {
+		destinationIn: new FadeInOut({
+			duration: 1000,
+			color: Color.Black
+		})
+	});
 })
 
-console.log("Waiting for user to start game")
-game.start('', {
-  loader
+game.start('start', {
+	loader
 }).then(() => {
-  console.log('Game started')
-  game.goToScene('Title')
-}).catch(err => {
-  console.log("Game failed to start:", err)
-})
+	if(game.currentScene instanceof MainGameScene) {
+		game.currentScene.onPostLoad()
+	}
+});

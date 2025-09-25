@@ -1,20 +1,32 @@
-import { Actor, Color, DefaultLoader, Engine, Entity, ExcaliburGraphicsContext, GraphicsComponent, Scene, SceneActivationContext, Sprite, vec } from "excalibur"
+import { Actor, Color, DefaultLoader, Engine, Entity, ExcaliburGraphicsContext, GraphicsComponent, PointerComponent, Scene, SceneActivationContext, Sprite, TransformComponent, vec } from "excalibur"
 import { Player } from "./player"
 import { Car } from "./car"
 import { Resources } from "./resources"
 
-export class MyLevel extends Scene {
+export class MainGameScene extends Scene {
 	override onInitialize(engine: Engine): void {
 		// Scene.onInitialize is where we recommend you perform the composition for your game
 		Resources.TiledMap.addToScene(this)
-		this.tileMaps[0].scale = vec(2, 2)
+		this.tileMaps.forEach(map => {
+			map.removeComponent(PointerComponent);
+		})
 
+		const offset = this.tileMaps[0].pos.negate().add(vec(8, -8))
+		Resources.TiledMap.getEntitiesByClassName('physics-block').forEach(block => {
+			block = block as Actor
+			block.get(TransformComponent).pos.add(offset, block.get(TransformComponent).pos)
+		})
+		//console.log(Resources.TiledMap.getEntitiesByClassName())
+		const playerCar = (Resources.TiledMap.getEntitiesByName('player-car')[0]) as Car
+		playerCar.pos.add(offset, playerCar.pos)
+		
 		const player = new Player();
 		this.add(player); // Actors need to be added to a scene to be drawn
 		
-		const car = new Car();
-		this.add(car);
-		this.camera.strategy.elasticToActor(car, 0.5, 0.9)
+		//const car = new Car();
+		//this.add(car);
+		this.camera.strategy.elasticToActor(playerCar, 0.5, 0.9)
+		this.camera.zoom = 2
 		this.backgroundColor = Color.Viridian
 	}
 

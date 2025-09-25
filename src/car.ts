@@ -1,16 +1,25 @@
-import { Actor, Collider, CollisionContact, CollisionType, Engine, Keys, Side, vec } from "excalibur"
+import { Actor, Collider, CollisionContact, CollisionType, Color, Engine, Keys, lerp, Rectangle, Side, toRadians, vec } from "excalibur"
 import { Resources } from "./resources"
+import { Tile } from "@excaliburjs/plugin-tiled/build/umd/src/resource/tileset";
+import { TileInfo } from "@excaliburjs/plugin-tiled/build/umd/src/resource/tile-layer";
+import { FactoryProps, getCanonicalGid } from "@excaliburjs/plugin-tiled";
 
 export class Car extends Actor {
-	constructor() {
+	maxSpeed: number
+	constructor(props?: FactoryProps) {
+		console.log(props)
 		super({
-			name: 'Car',
-			pos: vec(300, 300),
-			width: 100,
-			height: 100,
+			name: props?.name ?? 'car',
+			pos: props?.worldPos ?? vec(0, 0),
+			width: 16,
+			height: 16,
 			// anchor: vec(0, 0), // Actors default center colliders and graphics with anchor (0.5, 0.5)
 			collisionType: CollisionType.Active,
 		});
+		this.body.mass = 20
+		this.body.bounciness = 0
+		this.rotation = toRadians(props?.properties.get('orientation') ?? 0)
+		this.maxSpeed = (props?.properties.get('max-speed') ?? 1000) / 1000
 	}
 
 	calculateAcceleration(engine: Engine, elapsedMs: number) {
@@ -27,17 +36,22 @@ export class Car extends Actor {
 			this.vel = this.vel.rotate(this.angularVelocity * (elapsedMs/1000))
 		}
 		
-		let decceleration = 15 + (this.vel.magnitude / 1000) + 100*Math.abs(this.angularVelocity);
+		const {tiledTile, exTile} = Resources.TiledMap.getTileByPoint('ground', this.pos) || {tiledTile: null, exTile: null}
+		const maxDriveSpeed = (Number)(tiledTile?.properties.get('max drive speed') || 100) 
+		
+		let decceleration = 15 + 135 * (this.vel.magnitude / maxDriveSpeed) + 100*Math.abs(this.angularVelocity);
 		let acceleration = 0
+
 		
 		if(engine.input.keyboard.isHeld(Keys.S)) {
-			decceleration += 250
+			decceleration += 75
+			acceleration -= 200
 		} else if(engine.input.keyboard.isHeld(Keys.W)) {
-			acceleration += 150 - (this.vel.magnitude / 9)
+			acceleration += (25 / this.maxSpeed) + (100000 / (this.vel.magnitude + 1000) * this.maxSpeed)
 		}
 		
-		decceleration *= elapsedMs/10
-		acceleration *= elapsedMs/10
+		decceleration *= 0.5
+		acceleration *= 0.5
 		if((this.vel.magnitude - decceleration/1000) <= 0) {
 			this.acc = vec(0, 0)
 			this.vel = vec(0, 0)
@@ -45,14 +59,20 @@ export class Car extends Actor {
 			this.acc = vec(-decceleration, 0).rotate(this.vel.toAngle())
 		}
 		this.acc.add(vec(acceleration, 0).rotate(this.rotation), this.acc)
-		//console.log(this.vel.magnitude)
-		this.vel.clampMagnitude(450)
 	}
 
 	override onInitialize() {
-		this.graphics.add(Resources.ForwardMarker.toSprite());
+		this.graphics.add(Resources.Dozer.toSprite());
 
 		this.on('pointerdown', evt => {
+			/*Resources.TiledMap.getTileLayers()[0].tilemap.getTileByPoint(this.pos).addGraphic(new Rectangle({
+				width: 8,
+				height: 8,
+				color: Color.Red
+			}))*/
+			const {tiledTile, exTile} = Resources.TiledMap.getTileByPoint('ground', this.pos) || {tiledTile: null, exTile: null}
+			console.log(tiledTile)
+			console.log(tiledTile.properties.get('max drive speed'))
 			console.log('You clicked the actor @', evt.worldPos.toString());
 		});
 	}
