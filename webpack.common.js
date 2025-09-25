@@ -48,7 +48,8 @@ module.exports = {
 		}),
 		new CopyPlugin({
 			patterns: [
-				{from: "res/", to: "res/"}
+				{from: "res/", to: "res/"},
+				{from: "stylesheet.css", to: "stylesheet.css"}
 			],
 		}),
 

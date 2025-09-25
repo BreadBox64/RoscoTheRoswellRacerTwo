@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Excalibur Webpack Sample</title>
-</head>
-<body>
-    <!-- webpack injects the script tag into body using HtmlWebPackPlugin -->
-</body>
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Rosco the Roswell Racer 2</title>
+		<link href="./stylesheet.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<main>
+			<canvas id="game-canvas"></canvas>
+			<div id="main-menu-overlay" style="opacity: 1;" hidden=true>
+				<div class="main-menu-container">
+					<div class="main-menu">
+						<h1 style="color: black; font-size: 20cqh; margin: 0;">Rosco the Roswell Racer 2</h1>
+						<div class="main-menu-buttons">
+							<button id="start-button">Start Game</button>
+						</div>
+						<div class="main-menu-buttons">
+							<button id="options-button">Options</button>
+						</div>
+					</div> 
+				</div>
+			</div>
+		</main>
+	</body>
 </html>
