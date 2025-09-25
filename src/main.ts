@@ -25,12 +25,12 @@ const game = new Engine({
 	physics: {
 		solver: SolverStrategy.Realistic,
 		realistic: {
-			positionIterations: 4
+			positionIterations: 4,
 		},
 		colliders: {
 			compositeStrategy: 'separate'
-		}
-		//substep: 5 // Sub step the physics simulation for more robust simulations
+		},
+		substep: 5 // Sub step the physics simulation for more robust simulations
 	},
 });
 

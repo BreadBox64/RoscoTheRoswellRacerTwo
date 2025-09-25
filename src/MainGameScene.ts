@@ -11,11 +11,6 @@ export class MainGameScene extends Scene {
 		})
 
 		const offset = this.tileMaps[0].pos.negate().add(vec(8, -8))
-		Resources.TiledMap.getEntitiesByClassName('physics-block').forEach(block => {
-			block = block as Actor
-			block.get(TransformComponent).pos.add(offset, block.get(TransformComponent).pos)
-		})
-		//console.log(Resources.TiledMap.getEntitiesByClassName())
 		const playerCar = (Resources.TiledMap.getEntitiesByName('player-car')[0]) as Car
 		playerCar.pos.add(offset, playerCar.pos)
 

@@ -14,7 +14,7 @@ export class Car extends Actor {
 			// anchor: vec(0, 0), // Actors default center colliders and graphics with anchor (0.5, 0.5)
 			collisionType: CollisionType.Active,
 		});
-		this.body.mass = 20
+		this.body.mass = 2000
 		this.body.bounciness = 0
 		this.rotation = toRadians(props?.properties.get('orientation') ?? 0)
 		this.maxSpeed = (props?.properties.get('max-speed') ?? 1000) / 1000
@@ -39,7 +39,6 @@ export class Car extends Actor {
 		
 		let decceleration = 15 + 135 * (this.vel.magnitude / maxDriveSpeed) + 100*Math.abs(this.angularVelocity);
 		let acceleration = 0
-
 		
 		if(engine.input.keyboard.isHeld(Keys.S)) {
 			decceleration += 75

@@ -1,19 +1,19 @@
-import { Actor, Collider, CollisionContact, CollisionType, Engine, Side } from "excalibur"
+import { Actor, Collider, CollisionContact, CollisionType, Engine, Side, vec } from "excalibur"
 import { Resources } from "./Resources"
 import { FactoryProps } from "@excaliburjs/plugin-tiled";
 
 export class PhysicsBlock extends Actor {
 	gid: number;
 
-	constructor(props: FactoryProps) {
+	constructor(fixed: boolean, props: FactoryProps) {
 		super({
 			name: 'Physics Block',
 			pos: props.worldPos,
-			width: 8,
-			height: 8,
+			width: props?.object['width'] ?? 8,
+			height: props?.object['height'] ?? 8,
 			//collider: Shape.Box(1, 1),
-			// anchor: vec(0, 0), // Actors default center colliders and graphics with anchor (0.5, 0.5)
-			collisionType: CollisionType.Active,
+			anchor: vec(0, 1), // Actors default center colliders and graphics with anchor (0.5, 0.5)
+			collisionType: (fixed) ? CollisionType.Fixed : CollisionType.Active,
 		});
 		
 		this.gid = props.object['gid'] - 1

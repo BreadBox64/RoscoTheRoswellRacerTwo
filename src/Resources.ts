@@ -10,7 +10,10 @@ export const Resources = {
 		useExcaliburWiring: true,
 		entityClassNameFactories: {
 			'physics-block': (props: FactoryProps) => {
-				return new PhysicsBlock(props)
+				return new PhysicsBlock(false, props)
+			},
+			'static-block': (props: FactoryProps) => {
+				return new PhysicsBlock(true, props)
 			},
 			'car': (props: FactoryProps) => {
 				return new Car(props)
