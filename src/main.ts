@@ -1,4 +1,4 @@
-import { Color, DisplayMode, Engine, FadeInOut, PointerScope, Resource } from "excalibur"
+import { Color, DisplayMode, Engine, FadeInOut, PointerScope, Resource, SolverStrategy } from "excalibur"
 import { loader, Resources } from "./resources"
 import { MainGameScene } from "./level"
 
@@ -13,11 +13,11 @@ const game = new Engine({
 		start: MainGameScene
 	},
 	//antialiasing: true,
-	pointerScope: PointerScope.Canvas
-	// physics: {
-	//   solver: SolverStrategy.Realistic,
-	//   substep: 5 // Sub step the physics simulation for more robust simulations
-	// },
+	pointerScope: PointerScope.Canvas,
+	physics: {
+		solver: SolverStrategy.Realistic,
+		//substep: 5 // Sub step the physics simulation for more robust simulations
+	},
 	// fixedUpdateTimestep: 16 // Turn on fixed update timestep when consistent physic simulation is important
 });
 

@@ -9,15 +9,13 @@ export class Car extends Actor {
 		super({
 			name: 'Car',
 			pos: vec(300, 300),
-			width: 100,
-			height: 100,
+			width: 32,
+			height: 32,
 			// anchor: vec(0, 0), // Actors default center colliders and graphics with anchor (0.5, 0.5)
 			collisionType: CollisionType.Active,
 		});
-	}
 
-	getGroundTile() {
-		return Resources.TiledMap.getTileLayers()[0].tilemap.getTileByPoint(this.pos)
+		this.body.mass = 20
 	}
 
 	calculateAcceleration(engine: Engine, elapsedMs: number) {
@@ -41,8 +39,7 @@ export class Car extends Actor {
 		let acceleration = 0
 		
 		if(engine.input.keyboard.isHeld(Keys.S)) {
-			decceleration += 50
-			acceleration -= 200
+			decceleration += 250
 		} else if(engine.input.keyboard.isHeld(Keys.W)) {
 			acceleration += 50 + 175*(1000 / (this.vel.magnitude + 1000))
 		}
