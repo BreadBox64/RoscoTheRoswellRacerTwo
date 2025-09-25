@@ -8,7 +8,7 @@ export class PhysicsBlock extends Actor {
 	constructor(props: FactoryProps) {
 		super({
 			name: 'Physics Block',
-			pos: props.worldPos.scale(2),
+			pos: props.worldPos,
 			width: 8,
 			height: 8,
 			//collider: Shape.Box(1, 1),
@@ -22,7 +22,6 @@ export class PhysicsBlock extends Actor {
 
 	override onInitialize() {
 		this.graphics.add(Resources.TiledTileset.data.getSpriteForGid(this.gid));
-		this.scale = vec(2, 2)
 	}
 
 	override onPreUpdate(engine: Engine, elapsedMs: number): void {

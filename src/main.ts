@@ -12,10 +12,16 @@ const game = new Engine({
 	scenes: {
 		start: MainGameScene
 	},
-	//antialiasing: true,
+	antialiasing: false,
 	pointerScope: PointerScope.Canvas,
 	physics: {
 		solver: SolverStrategy.Realistic,
+		realistic: {
+			positionIterations: 4
+		},
+		colliders: {
+			compositeStrategy: 'separate'
+		}
 		//substep: 5 // Sub step the physics simulation for more robust simulations
 	},
 	// fixedUpdateTimestep: 16 // Turn on fixed update timestep when consistent physic simulation is important

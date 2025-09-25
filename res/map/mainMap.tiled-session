@@ -3,11 +3,19 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "main.tmx",
+    "activeFile": "bunker.tmx",
     "expandedProjectPaths": [
         "."
     ],
     "fileStates": {
+        "bunker.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": -118,
+                "y": 158.66666666666669
+            }
+        },
         "fixed.tmx": {
             "scale": 5.826666666666667,
             "selectedLayer": 0,
@@ -16,36 +24,58 @@
                 "y": 79.97711670480547
             }
         },
-        "main.tmx": {
-            "scale": 0.5,
+        "flat.tmx": {
+            "scale": 1.5,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 4,
-                "y": 260
+                "x": 512.3333333333333,
+                "y": 255.99999999999997
+            }
+        },
+        "main-clear.tmx": {
+            "expandedObjectLayers": [
+                3,
+                2
+            ],
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 3.75,
+                "y": 4
+            }
+        },
+        "main.tmx": {
+            "scale": 0.33,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": -203.030303030303,
+                "y": 584.848484848485
             }
         },
         "tileset.tsx": {
-            "scaleInDock": 5.5,
+            "scaleInDock": 4,
             "scaleInEditor": 11
         }
     },
     "last.imagePath": "/home/breadbox64/GitRepos/RoscoTheRoswellRacerTwo/res/img",
-    "map.fixedSize": true,
+    "map.fixedSize": false,
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": "3",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
     "openFiles": [
         "tileset.tsx",
-        "main.tmx",
-        "fixed.tmx"
+        "bunker.tmx"
     ],
     "project": "mainMap.tiled-project",
     "property.type": "int",
     "recentFiles": [
         "tileset.tsx",
-        "fixed.tmx",
-        "main.tmx"
+        "bunker.tmx",
+        "main.tmx",
+        "flat.tmx",
+        "main-clear.tmx",
+        "fixed.tmx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
