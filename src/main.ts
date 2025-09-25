@@ -1,5 +1,5 @@
 import { Color, DisplayMode, Engine, FadeInOut, PointerScope, SolverStrategy } from "excalibur"
-import { loader } from "./resources"
+import { loader } from "./Resources"
 import { MainGameScene } from "./MainGameScene"
 import { TitleScene } from "./TitleScene";
 

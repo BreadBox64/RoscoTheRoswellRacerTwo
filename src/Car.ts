@@ -1,5 +1,5 @@
 import { Actor, Collider, CollisionContact, CollisionType, Engine, Keys, Side, toRadians, vec } from "excalibur"
-import { Resources } from "./resources"
+import { Resources } from "./Resources"
 import { FactoryProps } from "@excaliburjs/plugin-tiled";
 
 export class Car extends Actor {

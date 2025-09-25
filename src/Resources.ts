@@ -1,10 +1,10 @@
-import { ImageSource, ImageWrapping, Loader } from "excalibur"
+import { ImageSource, Loader } from "excalibur"
 import swordPath from '../res/img/sword.png'
 import bgPath from '../res/img/bg.png';
 import forwardMarkerPath from '../res/img/forwardMarker.png'
 import { FactoryProps, TiledResource, TilesetResource } from "@excaliburjs/plugin-tiled";
-import { PhysicsBlock } from "./physicsBlock";
-import { Car } from "./car";
+import { PhysicsBlock } from "./PhysicsBlock";
+import { Car } from "./Car";
 
 // It is convenient to put your resources in one place
 export const Resources = {

@@ -1,6 +1,6 @@
 import { Actor, Color, DefaultLoader, Engine, ExcaliburGraphicsContext, PointerComponent, Scene, SceneActivationContext, TransformComponent, vec } from "excalibur"
-import { Car } from "./car"
-import { Resources } from "./resources"
+import { Car } from "./Car"
+import { Resources } from "./Resources"
 
 export class MainGameScene extends Scene {
 	override onInitialize(engine: Engine): void {

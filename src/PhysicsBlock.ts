@@ -1,5 +1,5 @@
-import { Actor, Collider, CollisionContact, CollisionType, Color, Engine, Keys, lerp, Rectangle, Shape, Side, vec } from "excalibur"
-import { Resources } from "./resources"
+import { Actor, Collider, CollisionContact, CollisionType, Engine, Side } from "excalibur"
+import { Resources } from "./Resources"
 import { FactoryProps } from "@excaliburjs/plugin-tiled";
 
 export class PhysicsBlock extends Actor {
